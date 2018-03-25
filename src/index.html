@@ -2,15 +2,22 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
     <title>seattle-doctor-lookup</title>
   </head>
   <body>
     <div class="container">
-      <h1>Seattle Doctor Lookup Application</h1>
+      <div class="jumbotron">
+        <img src="https://pics.clipartpng.com/midle/Apple_PNG_Clip_Art-1467.png" alt="photo of apple" id="applePhoto">
+        <h1>Seattle Doctor Lookup</h1>
+        <h2>Find Your New Physician Today!</h2>
+      </div>
+      <img src="https://d3n8a8pro7vhmx.cloudfront.net/doctorpatientalliance/pages/1/features/original/DoctorPatient1170x700.png?1494902780" alt="picture of doctor and patient" id="doctorPhoto">
       <div class="form-group">
-        <label for="searchByMalady">Search doctors by malady:</label>
-        <input required class="form-control input-md" type="text" id="malady">
-        <button class="btn-success" id="maladySubmit">Find Doctors</button>
+        <label for="searchByMalady" id="maladySearch">Enter either a symptom or a condition and find a doctor near you!</label>
+        <input required class="form-control input-sm" type="text" id="malady">
+        <hr>
+        <button class="btn-info" id="maladySubmit">Find Doctors</button>
         </div>
       <div id="doctorResult">
       </div>
