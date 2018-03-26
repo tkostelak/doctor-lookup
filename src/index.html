@@ -17,8 +17,18 @@
         <label for="searchByMalady" id="maladySearch">Enter either a symptom or a condition and find a doctor near you!</label>
         <input required class="form-control input-sm" type="text" id="malady">
         <hr>
-        <button class="btn-info" id="maladySubmit">Find Doctors</button>
+        <button class="btn btn-info btn-lg" id="maladySubmit">Find Doctors</button>
+        <button class="btn btn-info btn-lg" id="containerClear">Clear Doctors</button>
         </div>
+        <div class="form-group">
+          <label for="searchByName" id="nameSearch">Search for a doctor by their name!</label>
+          <input required class="form-control input-sm" type="text" id="name">
+          <hr>
+          <button class="btn btn-info btn-lg" id="nameSubmit">Find Doctors</button>
+          <button class="btn btn-info btn-lg" id="containerClearName">Clear Doctors</button>
+          </div>
+      <div id="errorText">
+      </div>
       <div id="doctorResult">
       </div>
     </div>

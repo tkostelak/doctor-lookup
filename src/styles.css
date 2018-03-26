@@ -5,12 +5,13 @@ body{
 .doctorContainer{
   font-family: Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 70px;
+  font-size: 40px;
   text-align: center;
   margin-top: 30px;
   border: 5px solid #1D84B5;
-  padding: 75px 75px 75px 75px;
+  padding: 30px 30px 30px 30px;
   background-color: #0A2239;
+  box-shadow: 0px 0px 25px #0A2239;
 }
 
 hr {
@@ -23,7 +24,7 @@ hr {
 h3{
   font-weight: bold;
   font-family: sans-serif;
-  font-size: 30px;
+  font-size: 25px;
   color: #53A2BE
 }
 
@@ -50,7 +51,23 @@ h1 {
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
+#nameSearch {
+  margin-top: 30px;
+  color: #53A2BE;
+  font-size: 35px;
+  font-family: Helvetica;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
 #maladySearch {
+  margin-top: 30px;
+  color: #53A2BE;
+  font-size: 35px;
+  font-family: Helvetica;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+h4{
   margin-top: 30px;
   color: #53A2BE;
   font-size: 35px;
@@ -71,4 +88,15 @@ h2 {
   box-shadow: 0px 0px 25px #0A2239;
   height: 650px;
   width: 1110px;
+}
+
+#profileImage {
+  float: left;
+  height: 200px;
+  width: 200px;
+  border: 5px solid #53A2BE;
+}
+
+#doctorResult {
+  margin-bottom: 300px;
 }
