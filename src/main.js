@@ -5,21 +5,16 @@ import './styles.css';
 
 $(document).ready(function() {
 
-  $("#containerClearName").click(function(){
-    location.reload();
-  });
-
-  $("#containerClear").click(function(){
-    location.reload();
-  });
-
   $("#maladySubmit").click(function(event){
     event.preventDefault();
+
+    $('#doctorResult').empty();
+    $('#errorText').empty();
     $("#result").text('');
 
     let malady = $('#malady').val();
 
-    $.get(`https://api.betterdoctor.com/2016-03-01/doctors?query=${malady}&location=wa-seattle&user_location=47.6062%2C%20122.3321&sort=distance-asc&skip=0&limit=10&user_key=`).then(function(response){
+    $.get(`https://api.betterdoctor.com/2016-03-01/doctors?query=${malady}&location=wa-seattle&user_location=47.6062%2C%20122.3321&sort=distance-asc&skip=0&limit=10&user_key=${process.env.exports.apiKey}`).then(function(response){
       if(response.data.length === 0)
       {
         $("#doctorResult").append(`<h3>Your search criteria did not return any doctors, please try again!</h3>`);
@@ -27,7 +22,7 @@ $(document).ready(function() {
 
       for(let i = 0; i < response.data.length; i ++)
       {
-        $("#doctorResult").append(`<div class="doctorContainer">
+        $("#doctorResult").append(`<div id="doctorContainerName">
                                    <img src= '${response.data[i].profile.image_url}' id='profileImage'>
                                    <h3>Doctor: ${response.data[i].profile.first_name} ${response.data[i].profile.last_name}</h3>
                                    <h3>Phone Number: ${response.data[i].practices[0].phones[0].number}</h3>
@@ -38,16 +33,19 @@ $(document).ready(function() {
                                    </div> <hr>`);
       }
       }).fail(function(error) {
-      $("#errorText").append(`<h3>${error.responseText}</h3>`);
+      $("#errorText").append(`<h3>Sorry, but the following error occurred: ${error.responseText}</h3>`);
         });
       });
 
     $("#nameSubmit").click(function(event){
       event.preventDefault();
 
+      $('#doctorResult').empty();
+      $('#errorText').empty();
+
       let nameSearch = $('#name').val();
 
-      $.get(`https://api.betterdoctor.com/2016-03-01/doctors?name=${nameSearch}&location=wa-seattle&user_location=47.6062%2C%20122.3321&sort=distance-asc&skip=0&limit=10&user_key=`)
+      $.get(`https://api.betterdoctor.com/2016-03-01/doctors?name=${nameSearch}&location=wa-seattle&user_location=47.6062%2C%20122.3321&sort=distance-asc&skip=0&limit=10&user_key=${process.env.exports.apiKey}`)
         .then(function(response){
         if(response.data.length === 0)
         {
@@ -56,7 +54,7 @@ $(document).ready(function() {
 
         for(let i = 0; i < response.data.length; i ++)
         {
-          $("#doctorResult").append(`<div class="doctorContainer">
+          $("#doctorResult").append(`<div id="doctorContainerMalady">
                                      <img src= '${response.data[i].profile.image_url}' id='profileImage'>
                                      <h3>Doctor: ${response.data[i].profile.first_name} ${response.data[i].profile.last_name}</h3>
                                      <h3>Phone Number: ${response.data[i].practices[0].phones[0].number}</h3>
@@ -67,7 +65,7 @@ $(document).ready(function() {
                                      </div> <hr>`);
         }
         }).fail(function(error) {
-          $("#errorText").append(`<h3>${error.responseText}</h3>`);
+          $("#errorText").append(`<h3>Sorry, but the following error occurred: ${error.responseText}</h3>`);
           });
       });
   });
